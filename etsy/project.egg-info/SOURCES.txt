@@ -1,0 +1,15 @@
+setup.py
+etsy/__init__.py
+etsy/items.py
+etsy/middlewares.py
+etsy/pipelines.py
+etsy/scrapydweb_settings_v8.py
+etsy/settings.py
+etsy/spiders/__init__.py
+etsy/spiders/shopdetail.py
+etsy/spiders/shops.py
+project.egg-info/PKG-INFO
+project.egg-info/SOURCES.txt
+project.egg-info/dependency_links.txt
+project.egg-info/entry_points.txt
+project.egg-info/top_level.txt
