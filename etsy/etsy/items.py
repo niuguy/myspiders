@@ -6,6 +6,7 @@
 # https://doc.scrapy.org/en/latest/topics/items.html
 
 import scrapy
+import redis
 
 
 class EtsyItem(scrapy.Item):
@@ -24,3 +25,15 @@ class Shop(scrapy.Item):
     comment_counts = scrapy.Field()
     comment_value = scrapy.Field()
 
+
+class Listing(scrapy.Item):
+    title = scrapy.Field()
+    price = scrapy.Field()
+    # delivery = scrapy.Field()
+    # freight = scrapy.Field()
+    shop_name = scrapy.Field()
+    # shop_sails = scrapy.Field()
+    # description = scrapy.Field()
+    # tags = scrapy.Field()
+
+    

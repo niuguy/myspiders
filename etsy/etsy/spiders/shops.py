@@ -13,7 +13,7 @@ class ShopsSpider(scrapy.Spider):
     def __init__(self, kw='', pn=10 , **kwargs):
         self.shop_lists = set()
         self.key_word = kw
-        self.page_num = pn
+        self.page_num =int(pn)   
         file_name = 'results/{0}_top{1}pages_shops_{2}.csv'.format(self.key_word.replace(" ","-"), self.page_num, datetime.datetime.now().strftime("%y%m%d"))
         self.file = open(file_name, 'w+b')
         self.exporter = CsvItemExporter(self.file)
