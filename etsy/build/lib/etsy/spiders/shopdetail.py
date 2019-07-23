@@ -4,18 +4,16 @@ import time
 import pickle
 
 
-class ShopdetailSpider(scrapy.Spider):
+class ShopdetailrSpider(scrapy.Spider):
     name = 'shopdetail'
     
     def __init__(self):
         self.shop_lists = set()
         self.key_word = 'open bra'
-        self.page_num = 41
+        self.page_num = 10
 
 
     def start_requests(self):
-       
-
         for i in range(self.page_num):
             url = 'https://www.etsy.com/uk/search?q='+self.key_word+'&ref=pagination&page='+ str(i)
             time.sleep(1)

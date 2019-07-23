@@ -17,13 +17,17 @@ class EtsyItem(scrapy.Item):
     pass
 
 class Shop(scrapy.Item):
-    name = scrapy.Field()
+    search_key = scrapy.Field()
+    shop_name = scrapy.Field()
+    search_pages = scrapy.Field()
     sales = scrapy.Field()
     location = scrapy.Field()
     since = scrapy.Field()
     url = scrapy.Field()
     comment_counts = scrapy.Field()
     comment_value = scrapy.Field()
+    record_time = scrapy.Field()
+    record_date = scrapy.Field()
 
 
 class Listing(scrapy.Item):

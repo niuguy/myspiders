@@ -6,6 +6,7 @@ etsy/pipelines.py
 etsy/scrapydweb_settings_v8.py
 etsy/settings.py
 etsy/spiders/__init__.py
+etsy/spiders/listings.py
 etsy/spiders/shopdetail.py
 etsy/spiders/shops.py
 project.egg-info/PKG-INFO
