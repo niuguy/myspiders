@@ -1,0 +1,14 @@
+setup.py
+street_project.egg-info/PKG-INFO
+street_project.egg-info/SOURCES.txt
+street_project.egg-info/dependency_links.txt
+street_project.egg-info/entry_points.txt
+street_project.egg-info/top_level.txt
+streetcheck/__init__.py
+streetcheck/items.py
+streetcheck/middlewares.py
+streetcheck/pipelines.py
+streetcheck/settings.py
+streetcheck/spiders/__init__.py
+streetcheck/spiders/reading_spider.py
+streetcheck/spiders/street_spider.py

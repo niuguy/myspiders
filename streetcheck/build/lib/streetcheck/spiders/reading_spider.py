@@ -31,7 +31,7 @@ class ReadingSpider(scrapy.Spider):
 
     def start_requests(self):
         codes_data = pkgutil.get_data(
-            "streetcheck", "resources/reading_postcodes_rg1.csv")
+            "streetcheck", "resources/reading_postcodes.csv")
         # print('codes_data',codes_data)
         codes_df = pd.read_csv(StringIO(codes_data.decode('utf-8')))
         pcodes = codes_df['postcode'].to_list()

@@ -1,3 +1,4 @@
-guppy==0.1.10
 beautifulsoup4==4.9.1
 pandas
+botocore==1.5.8
+boto3==1.4.4

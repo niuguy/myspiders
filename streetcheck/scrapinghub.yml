@@ -1,2 +1,4 @@
-image: true
 project: 464332
+requirements:
+  file: requirements.txt
+stack: scrapy:1.3-py3
