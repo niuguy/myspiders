@@ -24,14 +24,14 @@ class ReadingSpider(scrapy.Spider):
         # inputfile = 'reading_postcodes.csv'
         # self.input = client.get_object(Bucket=bucketname, Key=inputfile)[
         #     'Body'].read().decode('utf-8')
-        # output_file = '/tmp/reading_streets.csv'
-        # self.exporter = CsvItemExporter(open(output_file))
-        # self.exporter.start_exporting()
+        output_file = 'streetcheck/resources/reading_streets.csv'
+        self.exporter = CsvItemExporter(open(output_file, 'w+b'))
+        self.exporter.start_exporting()
         pass
 
     def start_requests(self):
         codes_data = pkgutil.get_data(
-            "streetcheck", "resources/reading_postcodes_rg1.csv")
+            "streetcheck", "resources/reading_postcodes.csv")
         # print('codes_data',codes_data)
         codes_df = pd.read_csv(StringIO(codes_data.decode('utf-8')))
         pcodes = codes_df['postcode'].to_list()
@@ -85,5 +85,6 @@ class ReadingSpider(scrapy.Spider):
         street['fulltime_rate'] = round(fe_people/total_economic, 3)
         # ab_people = ab_people_title.nextSibling.text.strip()
         # print(float(ab_people))
+        print(street)
+        self.exporter.export_item(street)
         yield street
-        # self.exporter.export_item(street)

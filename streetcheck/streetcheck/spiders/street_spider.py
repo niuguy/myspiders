@@ -11,13 +11,13 @@ class StreetSpider(scrapy.Spider):
 
     def __init__(self, kw='', pn=10, **kwargs):
 
-        file_name = 'data/streets.csv'
+        file_name = 'streetcheck/resources/streets.csv'
         self.file = open(file_name, 'w+b')
         self.exporter = CsvItemExporter(self.file)
         self.exporter.start_exporting()
 
     def start_requests(self):
-        codes_df = pd.read_csv('data/first_postcodes.csv')
+        codes_df = pd.read_csv('streetcheck/resources/first_postcodes.csv')
         pcodes = codes_df['first_postcode'].to_list()
         urls = [
             'https://www.streetcheck.co.uk/postcodedistrict/' +

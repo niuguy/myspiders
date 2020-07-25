@@ -3,19 +3,15 @@
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/items.html
 
-import scrapy
+from scrapy.item import Item, Field
 
 
-class StreetcheckItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
-
-
-class Street(scrapy.Item):
-    street_code = scrapy.Field()
-    cn_count = scrapy.Field()
-    cn_rate = scrapy.Field()
-    ab_people_rate = scrapy.Field()
-    white_rate = scrapy.Field()
-    fulltime_rate = scrapy.Field()
+class Street(Item):
+    crawled = Field()
+    spider = Field()
+    street_code = Field()
+    cn_count = Field()
+    cn_rate = Field()
+    ab_people_rate = Field()
+    white_rate = Field()
+    fulltime_rate = Field()
