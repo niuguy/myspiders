@@ -8,9 +8,10 @@
 from scrapy.exporters import CsvItemExporter
 from scrapy import signals
 from datetime import datetime
+from scrapy_redis.pipelines import RedisPipeline
 
 
-class StreetcheckPipeline:
+class StreetcheckPipeline(RedisPipeline):
 
     # @classmethod
     # def from_crawler(cls, crawler):
@@ -31,4 +32,6 @@ class StreetcheckPipeline:
     def process_item(self, item, spider):
         item['crawled'] = datetime.utcnow()
         item['spider'] = spider.name
-        return item
+        return super().process_item(item, spider)
+
+

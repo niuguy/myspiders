@@ -24,27 +24,27 @@ class ReadingSpider(scrapy.Spider):
         # inputfile = 'reading_postcodes.csv'
         # self.input = client.get_object(Bucket=bucketname, Key=inputfile)[
         #     'Body'].read().decode('utf-8')
-        output_file = 'streetcheck/resources/reading_streets.csv'
+        output_file = 'streetcheck/resources/reading_town_streets_2.csv'
         self.exporter = CsvItemExporter(open(output_file, 'w+b'))
         self.exporter.start_exporting()
         pass
 
     def start_requests(self):
         codes_data = pkgutil.get_data(
-            "streetcheck", "resources/reading_postcodes.csv")
+            "streetcheck", "resources/reading_town_postcodes_2.csv")
         # print('codes_data',codes_data)
         codes_df = pd.read_csv(StringIO(codes_data.decode('utf-8')))
         pcodes = codes_df['postcode'].to_list()
         # pcodes = ['rg20lw']
         urls = [
             'https://www.streetcheck.co.uk/postcode/' +
-            str(pcode) for pcode in pcodes[:10]
+            str(pcode) for pcode in pcodes
         ]
         headers = {
             'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:48.0) Gecko/20100101 Firefox/48.0'}
 
         for url in urls:
-            time.sleep(0.1)
+            # time.sleep(0.1)
             yield scrapy.Request(url=url, headers=headers, callback=self.parse)
 
     def parse(self, response):

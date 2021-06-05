@@ -94,9 +94,11 @@ RETRY_TIMES = 3
 RETRY_HTTP_CODES = [500, 503, 504, 400, 403, 404, 408]
 
 DOWNLOADER_MIDDLEWARES = {
-    'scrapy.downloadermiddlewares.retry.RetryMiddleware': 90,
-    'streetcheck.middlewares.RandomProxy': 100,
-    'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 110,
+   #  'scrapy.downloadermiddlewares.retry.RetryMiddleware': 90,
+   #  'streetcheck.middlewares.RandomProxy': 100,
+   #  'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 110,
+    'rotating_proxies.middlewares.RotatingProxyMiddleware': 610,
+    'rotating_proxies.middlewares.BanDetectionMiddleware': 620,
 }
 
 # Proxy list containing entries like
@@ -104,6 +106,8 @@ DOWNLOADER_MIDDLEWARES = {
 # http://username:password@host2:port
 # http://host3:port
 # ...
+ROTATING_PROXY_LIST_PATH = 'streetcheck/http_proxies.txt'
+
 PROXY_LIST = 'streetcheck/http_proxies.txt'
 
 # Proxy mode
@@ -148,8 +152,8 @@ DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
 
 # Store scraped item in redis for post-processing.
 ITEM_PIPELINES = {
-    'streetcheck.pipelines.StreetcheckPipeline': 200,
-    'scrapy_redis.pipelines.RedisPipeline': 300
+    'streetcheck.pipelines.StreetcheckPipeline': 200
+   #  'scrapy_redis.pipelines.RedisPipeline': 300
 }
 
 # The item pipeline serializes and stores the items in this redis key.
